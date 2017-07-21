@@ -25,8 +25,6 @@ public class WebApp {
          return rs;
      }
    
-     output.getString("ID");
-     output.getString("SNAME");
-     output.getString("CLASS");
+
     
 }
