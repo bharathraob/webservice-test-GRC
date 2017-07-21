@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webApplicationPack" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webApplicationPack" xmlns:intf="http://webApplicationPack" xmlns:tns1="http://sql.java" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webApplicationPack" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://sql.java"/>
+   <element name="getQ1">
+    <complexType/>
+   </element>
+   <element name="getQ1Response">
+    <complexType>
+     <sequence>
+      <element name="getQ1Return" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="Selection2">
+    <complexType/>
+   </element>
+   <element name="Selection2Response">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getQ1Request">
+
+      <wsdl:part element="impl:getQ1" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="Selection2Response">
+
+      <wsdl:part element="impl:Selection2Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQ1Response">
+
+      <wsdl:part element="impl:getQ1Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="Selection2Request">
+
+      <wsdl:part element="impl:Selection2" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WebApp2">
+
+      <wsdl:operation name="getQ1">
+
+         <wsdl:input message="impl:getQ1Request" name="getQ1Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getQ1Response" name="getQ1Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="Selection2">
+
+         <wsdl:input message="impl:Selection2Request" name="Selection2Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:Selection2Response" name="Selection2Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WebApp2SoapBinding" type="impl:WebApp2">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getQ1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getQ1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getQ1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="Selection2">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="Selection2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="Selection2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WebApp2Service">
+
+      <wsdl:port binding="impl:WebApp2SoapBinding" name="WebApp2">
+
+         <wsdlsoap:address location="http://localhost:8080/webApplication/services/WebApp2"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

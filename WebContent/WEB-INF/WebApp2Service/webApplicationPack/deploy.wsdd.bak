@@ -1,0 +1,46 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from WebApp2Service WSDL service -->
+
+  <service name="WebApp2" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webApplicationPack"/>
+      <parameter name="wsdlServiceElement" value="WebApp2Service"/>
+      <parameter name="schemaQualified" value="http://webApplicationPack"/>
+      <parameter name="wsdlServicePort" value="WebApp2"/>
+      <parameter name="className" value="webApplicationPack.WebApp2SoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="WebApp2"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getQ1" qname="operNS:getQ1" xmlns:operNS="http://webApplicationPack" returnQName="retNS:getQ1Return" xmlns:retNS="http://webApplicationPack" returnType="rtns:anyType" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="selection2" qname="operNS:Selection2" xmlns:operNS="http://webApplicationPack" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="selection2 getQ1"/>
+
+      <typeMapping
+        xmlns:ns="http://webApplicationPack"
+        qname="ns:>Selection2"
+        type="java:webApplicationPack.Selection2"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://webApplicationPack"
+        qname="ns:>Selection2Response"
+        type="java:webApplicationPack.Selection2Response"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
